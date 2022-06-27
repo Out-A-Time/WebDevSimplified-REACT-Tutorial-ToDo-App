@@ -62,7 +62,12 @@ function App() {
       <button onClick={handleAddTodo}>Add Task</button>
       <button onClick={handleClearTodos}>Clear Completed Tasks</button>
       <div>
-        {todos.filter((todo) => !todo.complete).length} tasks left to do
+        {
+          todos.filter(function (todo) {
+            return !todo.complete;
+          }).length
+        }
+        tasks left to do
       </div>
     </>
   );
