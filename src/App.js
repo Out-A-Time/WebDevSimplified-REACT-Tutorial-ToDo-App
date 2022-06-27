@@ -10,12 +10,7 @@ function App() {
   const [todos, setTodos] = useState([]);
   const todoNameRef = useRef();
 
-  // useEffect(function () {
-  //   const storedTodos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
-  //   if (storedTodos) setTodos(storedTodos);
-  // }, []);
-
-  useEffect(() => {
+  useEffect(function () {
     const storedTodos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
     if (storedTodos) setTodos(storedTodos);
   }, []);
@@ -34,7 +29,9 @@ function App() {
   function toggleTodo(id) {
     //create copy of todos array. Never modify original.
     const newTodos = [...todos];
-    const todo = newTodos.find((todo) => todo.id === id);
+    const todo = newTodos.find(function (todo) {
+      return todo.id === id;
+    });
     todo.complete = !todo.complete;
     setTodos(newTodos);
   }
@@ -52,7 +49,9 @@ function App() {
   }
 
   function handleClearTodos() {
-    const newTodos = todos.filter((todo) => !todo.complete);
+    const newTodos = todos.filter(function (todo) {
+      return !todo.complete;
+    });
     setTodos(newTodos);
   }
 
