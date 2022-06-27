@@ -1,8 +1,8 @@
 import React from "react";
 
-export default function ToDo({ todoProp, toggleTodo }) {
+export default function ToDo({ todoProp, toggleTodoProp }) {
   function handleTodoClick() {
-    toggleTodo(todoProp.id);
+    toggleTodoProp(todoProp.id);
   }
   return (
     <div>
@@ -12,8 +12,8 @@ export default function ToDo({ todoProp, toggleTodo }) {
           checked={todoProp.complete}
           onChange={handleTodoClick}
         />
+        {todoProp.name}
       </label>
-      {todoProp.name}
     </div>
   );
 }
