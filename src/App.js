@@ -22,10 +22,6 @@ function App() {
     [todos]
   );
 
-  // useEffect(() => {
-  //   localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos));
-  // }, [todos]);
-
   function toggleTodo(id) {
     //create copy of todos array. Never modify original.
     const newTodos = [...todos];
@@ -35,13 +31,11 @@ function App() {
     todo.complete = !todo.complete;
     setTodos(newTodos);
   }
-
+  //uuidv4() generates random id
   function handleAddTodo(e) {
     const name = todoNameRef.current.value;
     if (name === "") return;
-    console.log(name);
     setTodos(function (previousTodos) {
-      console.log(todos);
       return [...previousTodos, { id: uuidv4(), name: name, complete: false }];
     });
     //cleans the input field
@@ -57,7 +51,7 @@ function App() {
 
   return (
     <>
-      <ToDoList todosListProp={todos} toggleTodoProp={toggleTodo} />
+      <ToDoList todosListProp={todos} toggleTodoProp1={toggleTodo} />
       <input ref={todoNameRef} type="text" />
       <button onClick={handleAddTodo}>Add Task</button>
       <button onClick={handleClearTodos}>Clear Completed Tasks</button>

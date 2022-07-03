@@ -1,10 +1,11 @@
 import React from "react";
 import ToDo from "./ToDo";
 
-export default function ToDoList({ todosListProp, toggleTodoProp }) {
+function ToDoList({ todosListProp, toggleTodoProp1 }) {
   return todosListProp.map(function (todo) {
     return (
-      <ToDo key={todo.id} todoProp={todo} toggleTodoProp={toggleTodoProp} />
+      <ToDo key={todo.id} todoProp={todo} toggleTodoProp2={toggleTodoProp1} />
     );
   });
 }
+export default ToDoList;
